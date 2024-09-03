@@ -4,6 +4,43 @@
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
 .layout {
   border: 1px solid red;
+}
+
+.layout2 {
+  border: 1px solid blue;
+}
+
+body {
+  width: 90%;
+  margin: auto;
+  max-width: 1152px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-auto-rows: 200px;
+  gap: 10px;
 }
