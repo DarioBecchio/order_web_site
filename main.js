@@ -66,9 +66,12 @@ const flavour = [
 ];
 //-- Global Variables
 
-const domCreation = document.querySelector('main');
+const selectedFlavour = [];
 
+//- Dom selection variables
+const domCreation = document.querySelector('div.gridContainer');
 
+//create a card for each flavour
 flavour.forEach(element => {
     const domFlavourElements = `
             <div id = '${element.id}' class="layout2">
@@ -79,14 +82,58 @@ flavour.forEach(element => {
                 <div class="tagspace">
                     <span class="tagelement">${element.allergeni}</span>
                 </div>
+                <button class = "selectFlavours" >Add flavour</button>
             </div>
         `;
-    console.log(domFlavourElements);
+
     domCreation.innerHTML += domFlavourElements;
 
 
 
 });
+
+
+const selectFlavourButton = document.querySelectorAll('button.selectFlavours');
+
+
+for (let i = 0; i < selectFlavourButton.length; i++) {
+
+    selectFlavourButton[i].addEventListener('click', function () {
+        console.log(i);
+
+    })
+};
+
+const selectContainer = document.getElementById('containerWeight')
+console.log(selectContainer);
+
+selectContainer.addEventListener('change', function () {
+    const selectedContainer = selectContainer.value;
+
+    if (selectedContainer == 1) {
+        selectedFlavour.length = 2
+    }
+    if (selectedContainer == 2) {
+        selectedFlavour.length = 3
+    }
+    if (selectedContainer == 3) {
+        selectedFlavour.length = 4
+    }
+    if (selectedContainer == 4) {
+        selectedFlavour.length = 5
+    }
+    console.log(selectedFlavour);
+
+})
+
+
+
+
+
+
+
+
+
 
 
 
