@@ -37,7 +37,7 @@ body {
   width: 100px;
 }
 
-main {
+.gridContainer {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 250px);

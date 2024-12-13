@@ -64,12 +64,18 @@ const flavour = [
 
     },
 ];
+
+
 //-- Global Variables
 
-const selectedFlavour = [];
+let selectedFlavour;
+let selectedContainer;
 
 //- Dom selection variables
 const domCreation = document.querySelector('div.gridContainer');
+
+const selectContainer = document.getElementById('containerWeight');
+
 
 //create a card for each flavour
 flavour.forEach(element => {
@@ -82,7 +88,7 @@ flavour.forEach(element => {
                 <div class="tagspace">
                     <span class="tagelement">${element.allergeni}</span>
                 </div>
-                <button class = "selectFlavours" >Add flavour</button>
+                <button value = "${element.name}" class = "selectFlavours" >Add flavour </button>
             </div>
         `;
 
@@ -92,39 +98,64 @@ flavour.forEach(element => {
 
 });
 
+selectContainer.addEventListener('change', function () {
+    selectedContainer = selectContainer.value;
+
+
+})
+
 
 const selectFlavourButton = document.querySelectorAll('button.selectFlavours');
 
+selectFlavourButton.forEach(button => {
+    button.addEventListener('click', function () {
+        let numberMaxFlavour;
+        let yourSelection;
 
-for (let i = 0; i < selectFlavourButton.length; i++) {
 
-    selectFlavourButton[i].addEventListener('click', function () {
-        console.log(i);
+        if (selectedContainer == 1) {
+            yourSelection += button.value;
+            console.log(yourSelection);
+
+
+
+
+        }
+        if (selectedContainer == 2) {
+            yourSelection = button.value;
+            numberMaxFlavour = 3;
+
+        }
+        if (selectedContainer == 3) {
+            yourSelection = button.value;
+            numberMaxFlavour = 4;
+
+        }
+        if (selectedContainer == 4) {
+            yourSelection = button.value;
+            numberMaxFlavour = 5;
+
+        }
+
+
+
+
 
     })
-};
-
-const selectContainer = document.getElementById('containerWeight')
-console.log(selectContainer);
-
-selectContainer.addEventListener('change', function () {
-    const selectedContainer = selectContainer.value;
-
-    if (selectedContainer == 1) {
-        selectedFlavour.length = 2
-    }
-    if (selectedContainer == 2) {
-        selectedFlavour.length = 3
-    }
-    if (selectedContainer == 3) {
-        selectedFlavour.length = 4
-    }
-    if (selectedContainer == 4) {
-        selectedFlavour.length = 5
-    }
-    console.log(selectedFlavour);
-
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
