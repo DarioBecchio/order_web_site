@@ -71,7 +71,7 @@ const flavour = [
 let selectedFlavour;
 let selectedContainer;
 
-//- Dom selection variables
+//-- Dom selection variables
 const domCreation = document.querySelector('div.gridContainer');
 
 const selectContainer = document.getElementById('containerWeight');
@@ -88,7 +88,7 @@ flavour.forEach(element => {
                 <div class="tagspace">
                     <span class="tagelement">${element.allergeni}</span>
                 </div>
-                <button value = "${element.name}" class = "selectFlavours" >Add flavour </button>
+                <button onclick="increment(${element.id})" value = "${element.name}" class = "selectFlavours" >Add flavour </button>
             </div>
         `;
 
@@ -101,21 +101,29 @@ flavour.forEach(element => {
 selectContainer.addEventListener('change', function () {
     selectedContainer = selectContainer.value;
 
-
+    //console.log(selectedContainer);
 })
+
+
 
 
 const selectFlavourButton = document.querySelectorAll('button.selectFlavours');
 
 selectFlavourButton.forEach(button => {
     button.addEventListener('click', function () {
-        let numberMaxFlavour;
-        let yourSelection;
+        const numberMaxFlavour = [];
+        let yourSelection
 
 
         if (selectedContainer == 1) {
-            yourSelection += button.value;
-            console.log(yourSelection);
+
+            numberMaxFlavour.length = 2
+            for (i = 0; i <= numberMaxFlavour.length; i++) {
+
+                yourSelection = button.value;
+                numberMaxFlavour.unshift(yourSelection, yourSelection);
+                console.log(numberMaxFlavour);
+            };
 
 
 
@@ -123,19 +131,23 @@ selectFlavourButton.forEach(button => {
         }
         if (selectedContainer == 2) {
             yourSelection = button.value;
-            numberMaxFlavour = 3;
+            numberMaxFlavour.length = 3;
+
 
         }
         if (selectedContainer == 3) {
             yourSelection = button.value;
-            numberMaxFlavour = 4;
+            numberMaxFlavour.length = 4;
+
 
         }
         if (selectedContainer == 4) {
             yourSelection = button.value;
-            numberMaxFlavour = 5;
+            numberMaxFlavour.length = 5;
+
 
         }
+
 
 
 
@@ -143,11 +155,35 @@ selectFlavourButton.forEach(button => {
 
     })
 })
+const numberMaxFlavour = [];
+
+let increment = (id) => {
+    let selectedFlavour = id
+    let search = numberMaxFlavour.find((x) => x.id === id);
+    console.log(numberMaxFlavour);
+
+    if (search === undefined) {
+        numberMaxFlavour.push({
+            id: id,
+            item: 1
+        })
+    } else {
+        search.item += 1;
+    }
 
 
+}
+
+let decrement = () => { }
+
+let update = () => { }
 
 
+let calculation = () => {
+    document.getElementById("cart-amount");
+    console.log("Calc is functioning");
 
+}
 
 
 
